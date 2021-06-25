@@ -16,13 +16,12 @@ jobs:
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
         
-      - name: Project Version check (Maven, NodeJS...)
+      - name: action-maven
   # You may pin to the exact commit or the version.
-  # uses: avides/actions-project-version-check@e6aa0391d5a66067c81303d226cda614d304baee
-        uses: avides/actions-project-version-check@v1.2.0
-        with:
-          # The repository token is used to request the target branch `file-to-check`-file from the [GitHub API](https://developer.github.com/v3/repos/contents/#get-contents)
-          token: pom.xml 
+  # uses: comchangs/action-maven@54db702e085ac767dad94c87e84499afb9d77162
+        uses: comchangs/action-maven@v0.4-beta
+        
+    
          
         
         
