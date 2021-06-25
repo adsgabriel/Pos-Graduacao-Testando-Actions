@@ -15,6 +15,8 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
+        
+        
       - name: Setup Maven
   # You may pin to the exact commit or the version.
         # uses: stCarolas/setup-maven@3c9ddfb1c6df927e174580018dd71e774bc7dd48
@@ -22,6 +24,9 @@ jobs:
         with:
           # Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0
           maven-version:  3.5.4
+      - name: Get project version
+        run: |
+          [[ ${{ steps.maven-gha.outputs.project-version }} == "0.1.0-SNAPSHOT" ]] && echo "Works" || ( echo "Fail" && exit 1 )
         
  
       
